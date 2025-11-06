@@ -1,22 +1,22 @@
 import express from "express";
 import cors from "cors";
-import dotenv, { config } from "dotenv";
-import connectDB from "./config/db.js";
-import userRoutes from "./router/userRouter.js";
+import dotenv from "dotenv";
 import { errorHandler } from "./middlewares/errorhandler.js";
+import { connectDB } from "./db/db.js";
+import userRouter from "./router/userRouter.js";
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
-config();
+dotenv.config();
 
 
 
 
 //routes
-app.use("/api/users", userRoutes);
+app.use("/api/users", userRouter);
 
 app.use("/api/products", (req, res) => {
   return res.status(200).json({
