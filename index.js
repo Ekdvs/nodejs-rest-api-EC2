@@ -23,6 +23,11 @@ app.use("/api/products", (req, res) => {
     message: "This is new feature change, a new route for products samin",
   });
 });
+app.use("/api/add", (req, res) => {
+  return res.status(200).json({
+    message: "This is new feature change, a new route for products samin",
+  });
+});
 
 //error handler
 app.use(errorHandler);
